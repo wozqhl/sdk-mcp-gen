@@ -396,6 +396,10 @@ grep -q 'public Object listPets' out/petstore/Client.java
 grep -q 'public Object createPet' out/petstore/Client.java
 grep -q 'public Object getPet' out/petstore/Client.java
 grep -q 'public Object deletePet' out/petstore/Client.java
+grep -q 'retryDelayMs' out/petstore/Client.java
+grep -q 'SDK_TIMEOUT_MS' out/petstore/Client.java
+grep -q 'bearerToken' out/petstore/Client.java
+grep -q 'iterateListPets' out/petstore/Client.java
 python3 - <<'JAVAPY'
 from pathlib import Path
 import re
@@ -447,6 +451,9 @@ grep -q 'pub fn list_pets' out/petstore/client.rs
 grep -q 'pub fn create_pet' out/petstore/client.rs
 grep -q 'pub fn get_pet' out/petstore/client.rs
 grep -q 'pub fn delete_pet' out/petstore/client.rs
+grep -q 'SDK_TIMEOUT_MS' out/petstore/client.rs
+grep -q 'bearer_token' out/petstore/client.rs
+grep -q '429' out/petstore/client.rs
 python3 - <<'RUSTPY'
 from pathlib import Path
 import re
@@ -494,6 +501,7 @@ grep -q 'namespace Client' out/petstore/Client.cs
 grep -q 'HttpClient' out/petstore/Client.cs
 grep -q 'public class Client' out/petstore/Client.cs
 grep -q 'public object ListPets' out/petstore/Client.cs
+grep -q 'IterateListPets' out/petstore/Client.cs
 grep -q 'public object CreatePet' out/petstore/Client.cs
 grep -q 'public object GetPet' out/petstore/Client.cs
 grep -q 'public object DeletePet' out/petstore/Client.cs
@@ -567,6 +575,7 @@ grep -q 'package client' out/petstore/Client.kt
 grep -q 'HttpURLConnection' out/petstore/Client.kt
 grep -q 'class Client' out/petstore/Client.kt
 grep -q 'fun listPets' out/petstore/Client.kt
+grep -q 'iterateListPets' out/petstore/Client.kt
 grep -q 'fun createPet' out/petstore/Client.kt
 grep -q 'fun getPet' out/petstore/Client.kt
 grep -q 'fun deletePet' out/petstore/Client.kt
@@ -629,6 +638,9 @@ grep -q 'func listPets' out/petstore/Client.swift
 grep -q 'func createPet' out/petstore/Client.swift
 grep -q 'func getPet' out/petstore/Client.swift
 grep -q 'func deletePet' out/petstore/Client.swift
+grep -q 'SDK_TIMEOUT_MS' out/petstore/Client.swift
+grep -q 'bearerToken' out/petstore/Client.swift
+grep -q '429' out/petstore/Client.swift
 if grep -qiE 'Alamofire|import[[:space:]]+Alamofire' out/petstore/Client.swift; then
   echo "Client.swift must be Alamofire-free" >&2
   exit 1
@@ -686,6 +698,9 @@ grep -q 'def list_pets' out/petstore/client.rb
 grep -q 'def create_pet' out/petstore/client.rb
 grep -q 'def get_pet' out/petstore/client.rb
 grep -q 'def delete_pet' out/petstore/client.rb
+grep -q 'SDK_TIMEOUT_MS' out/petstore/client.rb
+grep -q 'bearer_token' out/petstore/client.rb
+grep -q '429' out/petstore/client.rb
 if grep -qiE 'httparty|faraday|rest-client' out/petstore/client.rb; then
   echo "client.rb must be gem-free (stdlib Net::HTTP only)" >&2
   exit 1
@@ -739,6 +754,9 @@ grep -q 'public function listPets' out/petstore/Client.php
 grep -q 'public function createPet' out/petstore/Client.php
 grep -q 'public function getPet' out/petstore/Client.php
 grep -q 'public function deletePet' out/petstore/Client.php
+grep -q 'SDK_TIMEOUT_MS' out/petstore/Client.php
+grep -q 'bearerToken' out/petstore/Client.php
+grep -q '429' out/petstore/Client.php
 if grep -qiE 'curl_init|curl_exec|curl_setopt' out/petstore/Client.php; then
   echo "Client.php must be curl-extension-free (stdlib fopen/stream only)" >&2
   exit 1
